@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'Panton Caps';
+  font-weight: 900;
+  src: url('../fonts/panton-blackcaps.woff2') format('woff2'),
+  		 url('../fonts/panton-blackcaps.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Panton Caps';
+  font-weight: 300;
+  src: url('../fonts/panton-lightcaps.woff2') format('woff2'),
+  		 url('../fonts/panton-lightcaps.woff') format('woff');
+}
+
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background: #fff;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font: 100% 'Panton Caps', sans-serif;
+	font-weight: 900;
+	line-height: 1;
+	color: #000;
+	text-transform: uppercase;
+}
+
+ul {
+	list-style: none;
+}
+
+.container {
+	flex-basis: 450px;
+	text-align: center;
+}
+
+.tab {
+	margin: 0 4%;
+	cursor: pointer;
+	transition: color .3s;
+}
+
+.tab:hover {
+	color: #555;
+}
+
+.tab.active {
+	color: #000;
+	cursor: default;
+}
+
+.tab,
+.slide {
+	display: inline-block;
+	padding-bottom: 8px;
+	position: relative;
+	font-size: 0.75em;
+	font-weight: 900;
+}
+
+.tab:after,
+.slide:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	margin: auto;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #000;
+	transition: width .4s;
+}
+
+.tab.active:after,
+.slide.active:after {
+	width: 100%;
+}
+
+.tabs-content,
+.slider-content {
+	margin-top: 75px;
+	position: relative;
+}
+
+.slider-wrapper {
+	display: none;
+}
+
+.tab-info,
+.slide-info {
+	font-size: 1.125em;
+	opacity: 0;
+	transform: translateY(-20px);
+	transition: opacity .4s, transform .8s;
+}
+
+.tab-info:not(:first-child),
+.slide-info:not(:first-child) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.tab-info.active,
+.slide-info.active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.quantity {
+	font-size: 3em;
+	font-weight: 300;
+}
+
+.posts {
+	background: radial-gradient(farthest-side at 28px 12px, #f2c94c 5%, #fff 75%);
+}
+
+@media screen and (max-width: 767px) {
+	.container {
+		max-width: 320px;
+	}
+
+	.tabs-wrapper {
+		display: none;
+	}
+
+	.slider-wrapper {
+		display: block;
+	}
+}
