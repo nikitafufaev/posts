@@ -6,7 +6,7 @@ $(document).ready(function() {
 		slidesToShow: 3,
 		centerMode: true,
 		centerPadding: '0px',
-		speed: 600
+		speed: 500
 
 	});
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
 			tabInfo = $('.tab-info'),
 			slideInfo = $('.slide-info');
 
-	$('.slick-arrow').on('click keyup', function() {
+	$('.slider').on('afterChange', function(event, slick, currentSlide, nextSlide) {
 
 		var currentSlide = $('.slick-current');
 
